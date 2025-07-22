@@ -1,0 +1,187 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Every Child Matters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h2, h3 {
+      color: darkgreen;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: darkgreen;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: green;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .donation-option {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 15px;
+    }
+
+    .donation-details {
+      background: #e0ffe0;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .footer-message {
+      margin-top: 40px;
+      background: #fff8e1;
+      padding: 20px;
+      border-left: 5px solid goldenrod;
+      border-radius: 5px;
+    }
+
+    .quote {
+      margin-top: 20px;
+      font-style: italic;
+      color: #555;
+      text-align: center;
+    }
+
+    a {
+      color: darkblue;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Our Mission</h2>
+  <p>
+    Every Child Matters is a foundation dedicated to supporting families and children affected by the Southern California wildfires and the growing homelessness crisis. Many are still displaced — especially children who’ve lost access to school, safety, and stability.
+  </p>
+  <p>
+    Right now, we’re caring for over 500 sick and homeless children, providing them with food, shelter, medical support, and a sense of hope. No child should be left behind due to circumstances they didn’t create.
+  </p>
+  <p>
+    Our mission is simple: “Whatever your hand finds to do, do it with all your might.” Together, we can make the world a better place — one child at a time.
+  </p>
+
+  <button onclick="showDonorForm()">Make a Donation</button>
+
+  <!-- Donor Info Form -->
+  <div id="donorForm" class="hidden">
+    <h3>Donor Info</h3>
+    <input type="text" id="name" placeholder="Your Full Name" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <button onclick="showDonationMethods()">Next</button>
+  </div>
+
+  <!-- Donation Methods Section -->
+  <div id="donationMethods" class="hidden">
+    <h3>Choose a Donation Method</h3>
+
+    <!-- Bitcoin -->
+    <div class="donation-option">
+      <p><strong>Donate via Bitcoin</strong><br>
+      Fast, secure, and globally accepted. Your donation through crypto helps us deliver quick emergency relief without delays.</p>
+      <button onclick="showBitcoin()">Show Bitcoin Address</button>
+      <div id="bitcoinDetails" class="donation-details hidden">
+        <strong>Bitcoin Address:</strong><br>
+        bc1qh5lgcyz2x668nq6036n2jn358x7rsz0zhfmmul
+      </div>
+    </div>
+
+    <!-- Gift Card -->
+    <div class="donation-option">
+      <p><strong>Donate via Gift Card</strong><br>
+      We accept valid U.S. gift cards (Amazon, Apple, Walmart, etc). These allow us to buy immediate supplies and essentials for the children we support.</p>
+      <button onclick="showGiftCard()">Send Gift Card</button>
+      <div id="giftcardDetails" class="donation-details hidden">
+        Please send the card code and amount via WhatsApp. Include a photo or clear scan if possible. Thank you!
+      </div>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="donation-option">
+      <p><strong>Contact via WhatsApp to Donate Manually</strong><br>
+      Prefer to use CashApp, Chime, PayPal, or direct bank transfer? Contact us directly and we’ll guide you through the steps.</p>
+      <button onclick="contactWhatsApp()">Open WhatsApp</button>
+    </div>
+
+    <!-- Thank You Section -->
+    <div class="footer-message">
+      <h3>Thank You for Your Kindness!</h3>
+      <p>
+        Your donation helps us continue to provide shelter, meals, medicine, and education to the children who need it most.
+      </p>
+      <p>
+        Once you've donated, kindly send your proof of payment to us for confirmation:
+      </p>
+      <ul>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/+17167057879" target="_blank">+1 (716) 705‑7879</a></li>
+        <li><strong>Email:</strong> <a href="mailto:Management.lnfo@outlook.com">Click here to Email Us</a></li>
+      </ul>
+      <p>
+        You're not just donating — you're restoring lives and futures.
+      </p>
+
+      <div class="quote">
+        “We can’t help everyone, but everyone can help someone.”
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showDonorForm() {
+      document.getElementById("donorForm").classList.remove("hidden");
+    }
+
+    function showDonationMethods() {
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !phone) {
+        alert("Please fill in your name and phone number.");
+        return;
+      }
+
+      document.getElementById("donationMethods").classList.remove("hidden");
+    }
+
+    function showBitcoin() {
+      document.getElementById("bitcoinDetails").classList.toggle("hidden");
+    }
+
+    function showGiftCard() {
+      document.getElementById("giftcardDetails").classList.toggle("hidden");
+    }
+
+    function contactWhatsApp() {
+      window.open("https://wa.me/+17167057879", "_blank");
+    }
+  </script>
+
+</body>
+</html>
